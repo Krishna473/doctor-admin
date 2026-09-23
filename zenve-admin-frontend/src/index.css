@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-[#F4F7FB] text-ink font-sans;
+  }
+  ::selection {
+    background: rgba(67,56,202,0.16);
+  }
+  *:focus-visible {
+    outline: 2px solid #4338CA;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+#root {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-line rounded-xl2 shadow-card transition-colors duration-200;
+  }
+  .card-hover {
+    @apply hover:border-ink/[0.14];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-admin px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-admin-dark active:scale-[0.98] disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-4 py-2 text-sm font-semibold text-ink shadow-xs transition-colors duration-150 hover:bg-surface2 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium text-ink-soft transition-colors duration-150 hover:bg-surface2 hover:text-ink;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-faint outline-none transition-all duration-150;
+  }
+  .input:focus {
+    border-color: #4338CA;
+    box-shadow: 0 0 0 3px rgba(67,56,202,0.12);
+  }
+
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-ink-faint mb-1.5;
+  }
+
+  .font-script {
+    font-family: 'Caveat', cursive;
+  }
+}
+
+/* thin, neutral scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(18,21,28,0.14);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(18,21,28,0.24);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page-enter {
+  animation: pageIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes staggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.stagger-item {
+  animation: staggerIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Production builds
+dist/
+**/dist/
+build/
+**/build/
+
+# Maven / Java
+target/
+**/target/
+*.class
+*.jar
+*.war
+
+# IDE & Editor files
+.idea/
+**/.idea/
+.vscode/
+**/.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+**/logs/
+
+# Local databases & temp
+data/
+doctor frontend/
